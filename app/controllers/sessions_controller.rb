@@ -3,9 +3,7 @@ class SessionsController < ApplicationController
 
   end
   def create
-    if params[:name] == nil
-      redirect_to login_path
-    elsif params[:name] == ""
+    if params[:name] == nil || params[:name] == ""
       redirect_to login_path
     else
       session[:name] = params.permit(:name)[:name]
